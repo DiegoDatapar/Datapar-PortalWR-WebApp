@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #f6f6f8 !important;
+}
+
+/*
+    Fonts
+*/
+@font-face {
+    font-family: 'CircularStdBold';
+    src: url('assets/fonts/CircularStd-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'CircularStdBook';
+    src: url('assets/fonts/CircularStd-Book.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'CircularStdBlack';
+    src: url('assets/fonts/CircularStd-Black.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'CircularStdMedium';
+    src: url('assets/fonts/CircularStd-Medium.otf') format('opentype');
+}
+
+.popoverCustom {
+    max-width: 100% !important;
+}
+
+.modal-xlg .modal-dialog {
+    max-width: 1000px;
+}
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    z-index: 99999 !important;
+}

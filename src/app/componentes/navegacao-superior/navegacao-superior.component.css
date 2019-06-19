@@ -1,0 +1,16 @@
+nav {
+    height: 64px;
+    background-color: #466fba !important;
+  }
+  
+  .nav.justify-content-end li {
+    margin-left: 15px;
+  }
+  
+  nav .menu {
+    list-style: none;
+  }
+  
+  nav .menu a {
+    cursor: pointer;
+  }
