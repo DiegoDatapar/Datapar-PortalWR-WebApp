@@ -1,0 +1,19 @@
+.cabecalhoSecao {
+    height: 35px;
+    border-radius: 6px;
+    background-color: rgba(70, 111, 186, 0.06);
+    text-align:center;
+    padding-top: 0.5em;
+}
+
+    .cabecalhoSecao span {
+        font-family: CircularStdBold;
+        font-size: 16px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #466fba;
+    }

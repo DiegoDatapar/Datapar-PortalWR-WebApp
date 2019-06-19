@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col">
+    <div ngbDropdown class="d-inline-block">
+      <img ngbDropdownToggle src="assets/iconesMenu/icon-menu.svg" class="icon-menu" id="dropdownMenuButton"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+      <div (click)="onEvent($event)" ngbDropdownMenu aria-labelledby="dropdownForm1">
+         <form class="px-4 py-3">
+          <div class="form-group">
+            <input type="text" name="filtro" [(ngModel)]="filtro" class="form-control" id="exampleDropdownFormEmail1"
+              placeholder="Digite para filtrar">
+          </div>
+        </form>
+        <div class="row mt-2">
+          <div class="col-sm-4" *ngFor="let menu of menus">
+            <ul class="multi-column-dropdown active">
+              <li>
+                <div>
+                  <pwr-cabecalho-secao [descricao]="menu.Display"></pwr-cabecalho-secao>
+                </div>
+              </li>
+              <li *ngFor="let sub of menu.lSubcategorias" class="dropdown-item">
+                <div *ngIf="sub.lSubcategorias == undefined || sub.lSubcategorias == null">
+                  <a [routerLink]="sub.Url">{{sub.Display}}</a>
+                </div>
+                <div *ngIf="sub.lSubcategorias != undefined  && sub.lSubcategorias.length > 0">
+                  <div> <button type="button" class="btn btn-light btn-sm"  (click)="sub.Collapse = !sub.Collapse"
+                      [attr.aria-expanded]="!sub.Collapse" aria-controls="collapseExample">{{sub.Display}}
+                      <strong>+</strong></button>
+                    <div>
+                      <ul id="collapseExample" [ngbCollapse]="sub.Collapse && !(filtro?.length > 0)" class="collapse">
+                        <li class="dropdown-item p-0" *ngFor="let sub2 of sub.lSubcategorias | FilterDisplay: filtro">
+                          <a class="p-0" [routerLink]="sub2.Url">{{sub2.Display}}</a>
+                          <div class="dropdown-divider"></div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="divider">
+                <div class="dropdown-divider"></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="dropdown-divider"></div>
+      </div>
+    </div>
+  </div>
+</div>

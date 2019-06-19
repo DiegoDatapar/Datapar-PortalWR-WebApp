@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Menu } from '../modelos/menu';
+import { Menu } from './navegacao-lateral.menu';
+
 
 @Component({
   selector: 'pwr-navegacao-lateral',

@@ -6,10 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NavegacaoSuperiorComponent } from './navegacao-superior/navegacao-superior.component';
+import { CabecalhoSecaoComponent } from './cabecalho-secao/cabecalho-secao.component';
 
 @NgModule({
-  exports: [CartaoPadraoComponent, NavegacaoLateralComponent , NavegacaoSuperiorComponent],
-  declarations: [CartaoPadraoComponent, NavegacaoLateralComponent, NavegacaoSuperiorComponent],
+  exports: [CartaoPadraoComponent, NavegacaoLateralComponent , CabecalhoSecaoComponent],
+  declarations: [CartaoPadraoComponent, NavegacaoLateralComponent, CabecalhoSecaoComponent],
   imports: [
     CommonModule,
     HttpClientModule, FormsModule, RouterModule, ReactiveFormsModule // , MyNotifierModule
