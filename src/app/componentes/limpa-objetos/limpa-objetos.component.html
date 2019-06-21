@@ -1,0 +1,6 @@
+<div id="limpa-objetos">
+  <input class="form-control" (blur)="defineValor($event.target.value)" value={{valor}} />
+  <p class="clear" *ngIf="valor" (click)="limpar()">
+    <i class="fa fa-times"></i>
+  </p>
+</div>

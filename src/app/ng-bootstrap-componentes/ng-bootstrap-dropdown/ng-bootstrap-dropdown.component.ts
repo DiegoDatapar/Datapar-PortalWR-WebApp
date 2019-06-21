@@ -8,7 +8,7 @@ import { DropDownMenu } from './ng-bootstrap-dropdown-menu';
 })
 export class NgBootstrapDropdownComponent implements OnInit {
 
-  @Input() menus: DropDownMenu;
+  @Input() menus: any = [];
   filtro: string;
 
   onEvent(event) {
@@ -16,9 +16,33 @@ export class NgBootstrapDropdownComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.service.Obter().subscribe(itens => {
-    //   this.menus = itens;
-    // });
+    this.menus = [{ Display: 'WebSac',
+                  Url: '/websac',
+                  Collapse: true,
+                  lSubcategorias: [{Display: 'Administração',
+                                    Collapse: true,
+                                    lSubcategorias: [ { Display: 'Usuarios',
+                                                        Url: '/usuario',
+                                                        Collapse: true },
+                                                      { Display: 'Permissões',
+                                                        Url: '/permissoes',
+                                                        Collapse: true } ] },
+                                    { Display: 'Recursos',
+                                      Collapse: true,
+                                      lSubcategorias: [ { Display: 'E-Cotação',
+                                                          Url: '/cotacoesemaberto',
+                                                          Collapse: true },
+                                                        { Display: 'Check Point',
+                                                          Url: '',
+                                                          Collapse: true },
+                                                        { Display: 'Portaria',
+                                                          Url: '',
+                                                          Collapse: true } ] },{ Display: 'Relatórios',
+                                                          Collapse: true,
+                                                          lSubcategorias: [ { Display: 'Personalizados',
+                                                                              Url: '/usuario',
+                                                                              Collapse: true },
+                                                                             ] } ] }];
   }
 
 }
