@@ -1,0 +1,20 @@
+#limpa-objetos {
+    position: relative;
+}
+
+#limpa-objetos .clear {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+#limpa-objetos .clear:hover i {
+    transform: scale(1.1);
+}
+
+#limpa-objetos input {
+   max-height: 30px;
+}

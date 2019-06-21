@@ -7,10 +7,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NavegacaoSuperiorComponent } from './navegacao-superior/navegacao-superior.component';
 import { CabecalhoSecaoComponent } from './cabecalho-secao/cabecalho-secao.component';
+import { LimpaObjetosComponent } from './limpa-objetos/limpa-objetos.component';
 
 @NgModule({
-  exports: [CartaoPadraoComponent, NavegacaoLateralComponent , CabecalhoSecaoComponent],
-  declarations: [CartaoPadraoComponent, NavegacaoLateralComponent, CabecalhoSecaoComponent],
+  exports: [CartaoPadraoComponent, NavegacaoLateralComponent , CabecalhoSecaoComponent, LimpaObjetosComponent],
+  declarations: [CartaoPadraoComponent, NavegacaoLateralComponent, CabecalhoSecaoComponent, LimpaObjetosComponent],
   imports: [
     CommonModule,
     HttpClientModule, FormsModule, RouterModule, ReactiveFormsModule // , MyNotifierModule
