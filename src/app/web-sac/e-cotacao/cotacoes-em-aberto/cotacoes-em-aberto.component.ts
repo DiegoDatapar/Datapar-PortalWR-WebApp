@@ -1,4 +1,4 @@
-import { TableConfiguracao, PipeEnum } from './../../../ng-bootstrap-componentes/busca-avancada/configuracoes-table';
+import { TableConfiguracao, PipeEnum, TipoEnum } from './../../../ng-bootstrap-componentes/busca-avancada/configuracoes-table';
 import {Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,10 +10,10 @@ export class CotacoesEmAbertoComponent implements OnInit {
 
 
   configuracoesColunas: TableConfiguracao[] = [
-    new TableConfiguracao('Cotação', 'Codcot'),
-    new TableConfiguracao('Data Cotação', 'Datref', '', '', PipeEnum.datahora),
-    new TableConfiguracao('Observações', 'Cotobs'),
-    new TableConfiguracao('Filial', 'Razsoc')
+    new TableConfiguracao('Cotação', 'Codcot', '', 'Codcot' ),
+    new TableConfiguracao('Data Cotação', 'Datref', '', 'DatrefInicial',PipeEnum.datahora, TipoEnum.data, 'DatrefFinal'),
+    new TableConfiguracao('Observações', 'Cotobs', '', 'Cotobs' ),
+    new TableConfiguracao('Filial', 'Razsoc', '', 'Razsoc')
   ];
 
   constructor() { }
