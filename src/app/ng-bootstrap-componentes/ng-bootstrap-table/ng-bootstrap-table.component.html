@@ -8,11 +8,12 @@
     </div>
   </div>
 
-  <table class="table" *ngIf="retorno">
+  <table class="table" *ngIf="retorno">    
     <thead>
       <tr>
         <th scope="col" [sortable]="b.binding" *ngFor="let b of configuracoesCols" (sort)="onSort($event)"
-          class="text-center"><p>{{b.label}}</p></th>
+          class="text-center"><p>{{b.label}}</p>
+        </th>
       </tr>
       <tr class=filtros>
         <th *ngFor="let b of configuracoesCols" class="text-center">

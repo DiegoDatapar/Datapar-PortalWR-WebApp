@@ -87,7 +87,7 @@ export class NgBootstrapTableComponent implements OnInit {
 
   aplicarListagem() {
     this.listaService.Listar(this.api, this.page, this.pageSize, this.filtros, this.direction, this.column)
-      .subscribe(i => this.retorno = i);
+      .subscribe(i => {this.retorno = i});
   }
 
   limpaFiltro(arg1, arg2?) {
