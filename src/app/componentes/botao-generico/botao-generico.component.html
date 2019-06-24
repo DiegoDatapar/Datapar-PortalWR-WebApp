@@ -1,0 +1,11 @@
+<div class="botaogenerico" [ngStyle]="dimensoes">
+  <button [autofocus]="focado == true" 
+          [disabled]="desabilitado == true" 
+          [ngClass]="(desabilitado == true) ? 'desabilitado':'gradamarelo' "
+          class="{{classe}}"
+          (click)="metodo()"
+          type="{{tipo}}"
+          >
+      <span>{{descricao}}</span>
+  </button>
+</div>

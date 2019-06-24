@@ -11,6 +11,7 @@ import { NgBootstrapTableComponent } from './ng-bootstrap-table/ng-bootstrap-tab
 import { NgBootstrapDatePickerRangeComponent } from './ng-bootstrap-date-picker-range/ng-bootstrap-date-picker-range.component';
 import { BuscaAvancadaComponent } from './busca-avancada/busca-avancada.component';
 import { NgbdSortableHeader } from './ng-bootstrap-table/sortable';
+import { NgBootstrapDropdownBasicComponent } from './ng-bootstrap-dropdown-basic/ng-bootstrap-dropdown-basic.component';
 
 @NgModule({
   declarations: [NgBootstrapDropdownComponent,
@@ -18,8 +19,10 @@ import { NgbdSortableHeader } from './ng-bootstrap-table/sortable';
                 NgBootstrapTableComponent,
                 NgBootstrapDatePickerRangeComponent,
                 BuscaAvancadaComponent,
-                NgbdSortableHeader],
-  imports: [CommonModule, FormsModule,
+                NgbdSortableHeader,
+                NgBootstrapDropdownBasicComponent],
+  imports: [CommonModule, 
+    FormsModule,
     NgbModule,
     ComponentesModule,
     BrowserModule,
@@ -30,7 +33,8 @@ import { NgbdSortableHeader } from './ng-bootstrap-table/sortable';
   exports:  [NgBootstrapDropdownComponent,
              NgBootstrapTableComponent,
              NgBootstrapDatePickerRangeComponent,
-             NgbdSortableHeader],
+             NgbdSortableHeader,
+             NgBootstrapDropdownBasicComponent],
   bootstrap: [NgBootstrapDropdownComponent]
 })
 export class NgBootstrapComponentesModule { }

@@ -1,0 +1,25 @@
+:host ::ng-deep input {
+    border-radius: 6px;
+    border: solid 1px #d5dce0;
+}
+
+.containercampos p {
+    height: 20px;
+    font-family: CircularStdBook;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #323e4f;
+    margin-bottom: 5px;
+}
+
+:host ::ng-deep input {
+    height: 30px;
+}
+
+.obrigatorio p {
+    color: #dc3544;
+}

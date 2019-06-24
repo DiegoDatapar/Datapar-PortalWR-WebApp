@@ -1,0 +1,27 @@
+<div  class="row" style="margin: 0; padding: 0">
+  <div  class="col-3 offset-4">
+    <form (submit)="Entrar($event);"  id="loginForm" name="loginForm" target="_top" class="entradamodal-container">
+        <p *ngIf="expirado" class="alert alert-secondary text-center">Suas credenciais expiraram. Por favor, entre novamente</p>
+        <div  class="row text-center" id="ctnerLogo">
+          <img src="assets/iconesAplicacao/logo-black.png" class="rounded mx-auto d-block" />
+        </div>
+      <h3 class="mt-2">
+        Acesso ao sistema
+      </h3>
+      <hr />
+      <div >
+        <pwr-container-campos>
+          <input class="form-control" placeholder="Login" [value]="usuario.usuario" customfocus (keyup)="usuario.usuario = $event.target.value" />
+          <input class="form-control mt-2" placeholder="Senha" type="password" [value]="usuario.senha"
+            (keyup)="usuario.senha = $event.target.value" />
+        </pwr-container-campos>
+      </div>
+      <div class="mt-3">
+        <pwr-botao-generico classe="borderRadius azul" desabilitado="false" altura="58" largura="365" descricao="Entrar" tipo="submit"
+          >
+        </pwr-botao-generico>
+      </div>
+
+    </form>
+
+  </div>

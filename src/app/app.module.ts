@@ -8,6 +8,7 @@ import { CotacoesEmAbertoComponent } from './web-sac/e-cotacao/cotacoes-em-abert
 import { ComponentesModule } from './componentes/componentes.module';
 import { NgBootstrapComponentesModule } from './ng-bootstrap-componentes/ng-bootstrap-componentes.module';
 import { NavegacaoSuperiorComponent } from './componentes/navegacao-superior/navegacao-superior.component';
+import { AutenticacaoModule } from './autenticacao/autenticacao.module';
 
 
 
@@ -21,7 +22,7 @@ import { NavegacaoSuperiorComponent } from './componentes/navegacao-superior/nav
     BrowserModule,
     AppRoutingModule,
     ComponentesModule,
-    NgBootstrapComponentesModule
+    NgBootstrapComponentesModule, AutenticacaoModule
   ],
   exports: [NavegacaoSuperiorComponent],
   providers: [],

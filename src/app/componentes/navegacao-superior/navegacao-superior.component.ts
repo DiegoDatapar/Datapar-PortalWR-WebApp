@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AutenticacaoService } from 'src/app/autenticacao/autenticacao.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'pwr-navegacao-superior',
@@ -7,14 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavegacaoSuperiorComponent implements OnInit {
 
-  // constructor(public authService: AuthService, private router: Router) { }
+  constructor(public autenticacaoService: AutenticacaoService, private router: Router) { }
 
   ngOnInit() {
   }
 
   Sair() {
-    // this.authService.Sair();
-    // this.router.navigate(['login']);
+    this.autenticacaoService.Sair();
+    this.router.navigate(['login']);
   }
 
 }

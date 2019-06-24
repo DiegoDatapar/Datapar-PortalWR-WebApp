@@ -17,7 +17,7 @@ export class NgBootstrapTableComponent implements OnInit {
   @Input() rotaRedir: string;
   @Input() codigored: string; // Código para redirecionamento em listagem
   @Input() codigored2: string;
-  @Input() configuracoesCols: TableConfiguracao[];
+  @Input() configuracoesColunas: TableConfiguracao[];
 
   tipos = TipoEnum;
 

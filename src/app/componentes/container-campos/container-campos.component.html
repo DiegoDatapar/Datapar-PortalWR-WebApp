@@ -1,0 +1,12 @@
+<div class="containercampos" [ngClass]="{'obrigatorio': validaObrigatorio == true}">
+  <p>
+    {{label}}
+  </p>
+  <div>
+    <ng-content></ng-content>
+    <small 
+                     *ngIf="validaObrigatorio"
+                     class="text-danger d-block mt-2"
+                     >Campo obrigatório</small>
+  </div>
+</div>
