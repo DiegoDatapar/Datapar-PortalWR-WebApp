@@ -33,6 +33,7 @@ import { NgBootstrapDropdownBasicComponent } from './ng-bootstrap-dropdown-basic
   exports:  [NgBootstrapDropdownComponent,
              NgBootstrapTableComponent,
              NgBootstrapDatePickerRangeComponent,
+             BuscaAvancadaComponent,
              NgbdSortableHeader,
              NgBootstrapDropdownBasicComponent],
   bootstrap: [NgBootstrapDropdownComponent]

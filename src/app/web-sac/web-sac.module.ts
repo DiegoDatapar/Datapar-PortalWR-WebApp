@@ -1,14 +1,15 @@
+import { NgBootstrapComponentesModule } from './../ng-bootstrap-componentes/ng-bootstrap-componentes.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { CotacoesEmAbertoComponent } from './e-cotacao/cotacoes-em-aberto/cotacoes-em-aberto.component';
-import { NgBootstrapComponentesModule } from '../ng-bootstrap-componentes/ng-bootstrap-componentes.module';
+import { ItensCotacaoComponent } from './e-cotacao/cotacoes-em-aberto/itens-cotacao/itens-cotacao.component';
+import { CommonModule } from '@angular/common';
+import { AppModule } from '../app.module';
+import { ComponentesModule } from '../componentes/componentes.module';
 
 
 @NgModule({
-  declarations: [CotacoesEmAbertoComponent],
-  exports: [CotacoesEmAbertoComponent],
-  imports: [NgBootstrapComponentesModule,
-    CommonModule
-  ]
+  declarations: [CotacoesEmAbertoComponent, ItensCotacaoComponent],
+  exports: [CotacoesEmAbertoComponent, ItensCotacaoComponent],
+  imports: [CommonModule, NgBootstrapComponentesModule, ComponentesModule]
 })
 export class WebSacModule { }

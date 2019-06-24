@@ -1,0 +1,34 @@
+<div class="customctner">
+  <div class="cardpadrao">
+      <div class="float-left">
+          <img [src]="icone" class="icon-clipboard" />
+      </div>
+      <div style="margin-top: 15px; margin-left: 10px;" class="float-left">
+              <span class="titulo">{{titulo}}</span>
+          </div>
+      <div class="float-right">
+          <!-- <span class="subTitulo">{{tituloid}}</span> -->
+          <div>
+              <label class="codigo">
+                  <span>ID.: {{id}}</span>
+              </label>
+
+          </div>
+          <div class="ctnerVoltar">
+              <button class="btn btn-primary" (click)="Navlist()">Voltar</button>
+          </div>
+      </div>
+      <div class="containerForm">
+          <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="princ" role="tabpanel" aria-labelledby="princ-tab">
+                  <div class="row p-3">
+                      <div class="col-12">
+                          <ng-content></ng-content>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>

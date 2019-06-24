@@ -12,13 +12,15 @@ import { NavegacaoSuperiorComponent } from './componentes/navegacao-superior/nav
 import { AutenticacaoModule } from './autenticacao/autenticacao.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AutenticacaoInterceptadorService } from './autenticacao/autenticacao.interceptador.service';
+import { PaginaInicialComponent } from './portal-wr/pagina-inicial/pagina-inicial.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavegacaoSuperiorComponent
+    NavegacaoSuperiorComponent,
+    PaginaInicialComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,7 @@ import { AutenticacaoInterceptadorService } from './autenticacao/autenticacao.in
     ComponentesModule,
     NgBootstrapComponentesModule, AutenticacaoModule
   ],
-  exports: [NavegacaoSuperiorComponent],
+  exports: [NavegacaoSuperiorComponent, PaginaInicialComponent, ComponentesModule, NgBootstrapComponentesModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

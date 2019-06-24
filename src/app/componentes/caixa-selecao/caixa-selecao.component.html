@@ -1,0 +1,11 @@
+<div style="float:left; margin-right: 10px;"><label>
+  <strong>{{label}}</strong>
+</label>
+</div>
+<div>
+<label class="switch" [ngClass]="{'focado': focado}">
+  <input name="checkbox" type="checkbox"  (change)="onChecked($event)" class="primary" 
+  (blur)="onBlur()" (focus)="onFocus()" [(ngModel)]="valor">
+  <span class="slider round"></span>
+</label>
+</div>

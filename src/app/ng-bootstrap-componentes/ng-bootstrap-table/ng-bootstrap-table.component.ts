@@ -1,5 +1,5 @@
 import { TipoEnum } from './../busca-avancada/configuracoes-table';
-import { Component, OnInit, Input, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList, EventEmitter, Output } from '@angular/core';
 import { TableConfiguracao } from '../busca-avancada/configuracoes-table';
 import { RetornoApi } from 'src/app/comum/modelos/retorno-api';
 import { ListarPaginadoService } from '../servicos/listar-paginado.service';
@@ -13,11 +13,14 @@ import { NgbdSortableHeader, SortEvent } from './sortable';
 })
 export class NgBootstrapTableComponent implements OnInit {
 
+  @Input() mostrarNovo: boolean = true;
   @Input() api: string;
-  @Input() rotaRedir: string;
-  @Input() codigored: string; // Código para redirecionamento em listagem
-  @Input() codigored2: string;
+  @Input() rotaRedirecionamento: string;
+  @Input() codigoRedirecionamento: string; // Código para redirecionamento em listagem
+  @Input() codigoRedirecionamento2: string;
   @Input() configuracoesColunas: TableConfiguracao[];
+
+  // @Output() ClicarNoRegistro = new EventEmitter<any>();
 
   tipos = TipoEnum;
 
@@ -39,13 +42,13 @@ export class NgBootstrapTableComponent implements OnInit {
     this.aplicarListagem();
   }
 
-  paginacaoChanged(pagatu) {
+  mudancaPagina(pagatu) {
     this.filtrar(pagatu);
   }
 
   novo() {
     // Ajustar lógica de tratativa de redirecionamento
-    if (this.codigored2 !== undefined) {
+    if (this.codigoRedirecionamento2 !== undefined) {
       this.trataRedirecionamento(0, 0);
     } else {
       this.trataRedirecionamento(0, undefined);
@@ -55,16 +58,16 @@ export class NgBootstrapTableComponent implements OnInit {
 
   redirecionar(linhaselecionada: any) {
 
-    this.trataRedirecionamento(linhaselecionada[this.codigored], linhaselecionada[this.codigored2]);
+    this.trataRedirecionamento(linhaselecionada[this.codigoRedirecionamento], linhaselecionada[this.codigoRedirecionamento2]);
   }
 
   trataRedirecionamento(arg1, arg2) {
 
     if (arg2 != undefined) {
-      this.router.navigate([`/${this.rotaRedir}/`, arg1, arg2]);
+      this.router.navigate([`/${this.rotaRedirecionamento}/`, arg1, arg2]);
     }
     else {
-      this.router.navigate([`/${this.rotaRedir}/`, arg1]);
+      this.router.navigate([`/${this.rotaRedirecionamento}/`, arg1]);
     }
 
   }
