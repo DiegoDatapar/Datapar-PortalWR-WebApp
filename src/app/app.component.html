@@ -1,6 +1,5 @@
-<pwr-navegacao-superior></pwr-navegacao-superior>
-<pwr-navegacao-lateral></pwr-navegacao-lateral>
+<pwr-navegacao-superior *ngIf="autenticacaoService.Autenticado()"></pwr-navegacao-superior>
+<pwr-navegacao-lateral *ngIf="autenticacaoService.Autenticado()"></pwr-navegacao-lateral>
 <pwr-cartao-padrao>
   <router-outlet></router-outlet>
 </pwr-cartao-padrao>
-

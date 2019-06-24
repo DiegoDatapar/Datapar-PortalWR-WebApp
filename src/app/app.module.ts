@@ -1,3 +1,4 @@
+import { WebSacModule } from './web-sac/web-sac.module';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -9,23 +10,31 @@ import { ComponentesModule } from './componentes/componentes.module';
 import { NgBootstrapComponentesModule } from './ng-bootstrap-componentes/ng-bootstrap-componentes.module';
 import { NavegacaoSuperiorComponent } from './componentes/navegacao-superior/navegacao-superior.component';
 import { AutenticacaoModule } from './autenticacao/autenticacao.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AutenticacaoInterceptadorService } from './autenticacao/autenticacao.interceptador.service';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavegacaoSuperiorComponent,
-    CotacoesEmAbertoComponent
+    NavegacaoSuperiorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    WebSacModule,
     ComponentesModule,
     NgBootstrapComponentesModule, AutenticacaoModule
   ],
   exports: [NavegacaoSuperiorComponent],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AutenticacaoInterceptadorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AutenticacaoService } from './autenticacao/autenticacao.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Datapar-PortalWR-WebApp';
+
+  constructor(public autenticacaoService: AutenticacaoService) {
+
+  }
+
 }
