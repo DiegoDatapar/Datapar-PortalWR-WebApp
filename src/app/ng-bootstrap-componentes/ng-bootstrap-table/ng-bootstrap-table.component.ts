@@ -1,10 +1,9 @@
-import { TipoEnum } from './../busca-avancada/configuracoes-table';
 import { Component, OnInit, Input, ViewChildren, QueryList, EventEmitter, Output } from '@angular/core';
-import { TableConfiguracao } from '../busca-avancada/configuracoes-table';
 import { RetornoApi } from 'src/app/comum/modelos/retorno-api';
 import { ListarPaginadoService } from '../servicos/listar-paginado.service';
 import { Router } from '@angular/router';
 import { NgbdSortableHeader, SortEvent } from './sortable';
+import { ConfiguracaoTabela, TipoEnum } from 'src/app/comum/modelos/configuracoes-tabela';
 
 @Component({
   selector: 'pwr-ng-bootstrap-table',
@@ -18,7 +17,7 @@ export class NgBootstrapTableComponent implements OnInit {
   @Input() rotaRedirecionamento: string;
   @Input() codigoRedirecionamento: string; // Código para redirecionamento em listagem
   @Input() codigoRedirecionamento2: string;
-  @Input() configuracoesColunas: TableConfiguracao[];
+  @Input() configuracoesColunas: ConfiguracaoTabela[];
 
   // @Output() ClicarNoRegistro = new EventEmitter<any>();
 

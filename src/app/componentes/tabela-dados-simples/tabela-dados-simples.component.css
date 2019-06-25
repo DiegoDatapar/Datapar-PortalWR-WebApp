@@ -1,0 +1,41 @@
+table thead tr th {
+    border: 0px;
+}
+
+table thead .filtros input {
+    max-height: 30px;
+}
+
+table thead th{    
+    padding: 0px 5px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0px 10px;
+}
+
+table tr td {
+    border-top: 0px;
+}
+
+table tbody tr {
+    background: #f4f7fb;
+    border-radius: 5px;
+    border: 1px solid #f4f7fb;
+}
+
+table tbody tr:hover {
+    background-color: rgba(109, 219, 196, 0.12);
+    cursor: pointer;
+}
+
+td:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+td:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}

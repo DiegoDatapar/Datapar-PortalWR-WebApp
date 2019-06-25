@@ -5,11 +5,12 @@ import { ItensCotacaoComponent } from './e-cotacao/cotacoes-em-aberto/itens-cota
 import { CommonModule } from '@angular/common';
 import { AppModule } from '../app.module';
 import { ComponentesModule } from '../componentes/componentes.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [CotacoesEmAbertoComponent, ItensCotacaoComponent],
   exports: [CotacoesEmAbertoComponent, ItensCotacaoComponent],
-  imports: [CommonModule, NgBootstrapComponentesModule, ComponentesModule]
+  imports: [CommonModule, NgBootstrapComponentesModule, ComponentesModule, FormsModule, ReactiveFormsModule, ]
 })
 export class WebSacModule { }

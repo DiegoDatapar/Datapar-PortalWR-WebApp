@@ -14,6 +14,7 @@ import { ContainerCamposComponent } from './container-campos/container-campos.co
 import { FormularioCadastroComponent } from './formulario-cadastro/formulario-cadastro.component';
 import { CaixaSelecaoComponent } from './caixa-selecao/caixa-selecao.component';
 import { SeparadorComponent } from './separador/separador.component';
+import { TabelaDadosSimplesComponent } from './tabela-dados-simples/tabela-dados-simples.component';
 
 @NgModule({
   exports: [CartaoPadraoComponent,
@@ -24,7 +25,8 @@ import { SeparadorComponent } from './separador/separador.component';
     ContainerCamposComponent,
     FormularioCadastroComponent,
     CaixaSelecaoComponent,
-    SeparadorComponent],
+    SeparadorComponent,
+    TabelaDadosSimplesComponent],
   declarations: [CartaoPadraoComponent,
     NavegacaoLateralComponent,
     CabecalhoSecaoComponent,
@@ -33,7 +35,8 @@ import { SeparadorComponent } from './separador/separador.component';
     ContainerCamposComponent,
     FormularioCadastroComponent,
     CaixaSelecaoComponent,
-    SeparadorComponent],
+    SeparadorComponent,
+    TabelaDadosSimplesComponent],
   imports: [
     CommonModule,
     HttpClientModule, FormsModule, RouterModule, ReactiveFormsModule, NotificacoesModule

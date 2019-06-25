@@ -1,11 +1,10 @@
-import { Type } from "@angular/compiler";
 
-export class TableConfiguracao {
+export class ConfiguracaoTabela {
 
 
     label: string;
     binding: string;
-    tamanhocoluna: string; //Informar numero para tamanho baseado em sistema de grid/coluna do bootstrap.
+    tamanhocoluna: string;
     bindingfiltro: string;
     bindingfiltro2: string;
     pipe: PipeEnum;

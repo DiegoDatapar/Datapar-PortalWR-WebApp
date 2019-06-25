@@ -1,5 +1,5 @@
-import { TableConfiguracao, PipeEnum, TipoEnum } from './../../../ng-bootstrap-componentes/busca-avancada/configuracoes-table';
 import {Component, OnInit } from '@angular/core';
+import { ConfiguracaoTabela, PipeEnum, TipoEnum } from 'src/app/comum/modelos/configuracoes-tabela';
 
 @Component({
   selector: 'pwr-cotacoes-em-aberto',
@@ -9,11 +9,11 @@ import {Component, OnInit } from '@angular/core';
 export class CotacoesEmAbertoComponent implements OnInit {
 
 
-  configuracoesColunas: TableConfiguracao[] = [
-    new TableConfiguracao('Cotação', 'Codcot', '', 'Codcot' ),
-    new TableConfiguracao('Data Cotação', 'Datref', '', 'DatrefInicial',PipeEnum.datahora, TipoEnum.data, 'DatrefFinal'),
-    new TableConfiguracao('Observações', 'Cotobs', '', 'Cotobs' ),
-    new TableConfiguracao('Filial', 'Razsoc', '', 'Razsoc')
+  configuracoesColunas: ConfiguracaoTabela[] = [
+    new ConfiguracaoTabela('Cotação', 'Codcot', '', 'Codcot' ),
+    new ConfiguracaoTabela('Data Cotação', 'Datref', '', 'DatrefInicial', PipeEnum.datahora, TipoEnum.data, 'DatrefFinal'),
+    new ConfiguracaoTabela('Observações', 'Cotobs', '', 'Cotobs' ),
+    new ConfiguracaoTabela('Filial', 'Razsoc', '', 'Razsoc')
   ];
 
   constructor() { }

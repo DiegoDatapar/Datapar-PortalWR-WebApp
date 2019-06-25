@@ -1,0 +1,19 @@
+<table class="table" *ngIf="registros">
+  <thead>
+    <tr>
+      <th scope="col" *ngFor="let b of configuracoesColunas"
+        class="text-center">{{b.label}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let r of registros" (click)="redirecionar(r)">
+      <td *ngFor="let b of configuracoesColunas" class="text-center">
+        <span *ngIf="b.pipe === null" >{{r[b.binding]}}</span>
+        <span *ngIf="b.pipe === 'datahora'" >{{r[b.binding] | date:'dd/MM/yyyy HH:mm'}}</span>
+        <span *ngIf="b.pipe === 'data'" >{{r[b.binding] | date:'dd/MM/yyyy'}}</span>
+        <span *ngIf="b.pipe === 'hora'" >{{r[b.binding] | date:'HH:mm'}}</span>
+      </td>
+    </tr>
+    <tr></tr>
+  </tbody>
+</table>
