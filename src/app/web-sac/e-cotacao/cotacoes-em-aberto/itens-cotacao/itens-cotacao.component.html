@@ -51,7 +51,11 @@
             <input formControlName="Vlrtot" class="form-control" />
           </pwr-container-campos>
         </div>      
-
+        <div class="col-3">
+          <pwr-container-campos label="Prazo Envio">
+            <pwr-ng-bootstrap-date-time-picker name="Preent" [form]="formularioItensCotacao"></pwr-ng-bootstrap-date-time-picker>
+          </pwr-container-campos>
+        </div>
       </div>
       <div class="row mt-3 d-flex align-items-center">
         <div class="col-12">

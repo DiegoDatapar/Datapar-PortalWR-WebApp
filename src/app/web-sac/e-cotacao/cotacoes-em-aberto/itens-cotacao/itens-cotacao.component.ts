@@ -76,7 +76,7 @@ export class ItensCotacaoComponent implements OnInit {
   }
 
   abrirModal(content: any) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', size: 'lg', windowClass: 'modal-xlg' }).result.then((result) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', size: 'lg', windowClass: 'modal-xsm' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
 

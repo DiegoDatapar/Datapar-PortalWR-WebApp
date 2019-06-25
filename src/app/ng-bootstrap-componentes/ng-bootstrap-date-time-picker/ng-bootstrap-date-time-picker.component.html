@@ -1,0 +1,40 @@
+<div id="ctnerdata" class="input-group mr-2" [formGroup]="form" [ngClass]="{'focado': focado}">
+  <!-- <button class="btn btn-outline-secondary" [ngbPopover]="calendarContent" [disabled]='disabled' type="button">
+  </button> -->
+  <label class="fa fa-calendar input-icon" [ngbPopover]="calendarContent"></label>
+  <input [ngClass]="ngControl?.valid ? 'ng-valid' : 'ng-invalid'" class="form-control" (blur)="inputBlur($event)"
+      [ngModel]="dateString | date:inputDatetimeFormat" (change)="onInputChange($event)" [disabled]='disabled'
+      [formControlName]="name" (blur)="focado = false" (focus)="focado = true" />
+
+  <!-- <div class="input-group-append">
+</div> -->
+</div>
+
+<ng-template #calendarContent>
+  <div>
+      <div *ngIf="!showTimePickerToggle">
+          <ngb-datepicker #dp name="datepicker" [ngModel]="datetime" (ngModelChange)="onDateChange($event)" [footerTemplate]="footerTemplate">
+          </ngb-datepicker>
+          <button class="btn btn-block btn-outline-secondary" [disabled]="!datetime?.day"
+              [ngbPopover]="timePickerContent" type="button" (click)="toggleDateTimeState($event)">
+              <label class="fa fa-clock-o input-icon"></label>
+          </button>
+      </div>
+      <div *ngIf="showTimePickerToggle">
+          <button class="btn btn-block btn-outline-secondary" [ngbPopover]="calendarContent" type="button"
+              (click)="toggleDateTimeState($event)">
+              <label class="fa fa-calendar input-icon"></label>
+          </button>
+          <div class="mt-auto">
+              <ngb-timepicker #tp name="timepicker" [ngModel]="datetime" (ngModelChange)="onTimeChange($event)"
+                  [seconds]="seconds" [hourStep]="hourStep" [minuteStep]="minuteStep" [secondStep]="secondStep">
+              </ngb-timepicker>
+          </div>
+      </div>
+  </div>
+</ng-template>
+
+<ng-template #footerTemplate>
+  <hr class="my-0">
+  <button class="btn btn-primary btn-sm m-2 float-left" (click)="hoje()">Hoje</button>    
+</ng-template>

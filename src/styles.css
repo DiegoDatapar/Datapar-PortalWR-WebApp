@@ -34,6 +34,14 @@ body{
     max-width: 1000px;
 }
 
+.modal-xsm .modal-dialog {
+    max-width: 800px;
+}
+
+.modal-xxl .modal-dialog {
+    max-width: 600px;
+}
+
 .cdk-global-overlay-wrapper, .cdk-overlay-container {
     z-index: 99999 !important;
 }

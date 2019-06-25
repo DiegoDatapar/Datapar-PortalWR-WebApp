@@ -14,6 +14,7 @@ import { BuscaAvancadaComponent } from './busca-avancada/busca-avancada.componen
 import { NgbdSortableHeader } from './ng-bootstrap-table/sortable';
 import { NgBootstrapDropdownBasicComponent } from './ng-bootstrap-dropdown-basic/ng-bootstrap-dropdown-basic.component';
 import { NgBootstrapTypeAheadHttpComponent } from './ng-bootstrap-type-ahead-http/ng-bootstrap-type-ahead-http.component';
+import { NgBootstrapDateTimePickerComponent } from './ng-bootstrap-date-time-picker/ng-bootstrap-date-time-picker.component';
 
 @NgModule({
   declarations: [NgBootstrapDropdownComponent,
@@ -23,7 +24,8 @@ import { NgBootstrapTypeAheadHttpComponent } from './ng-bootstrap-type-ahead-htt
                 BuscaAvancadaComponent,
                 NgbdSortableHeader,
                 NgBootstrapDropdownBasicComponent,
-                NgBootstrapTypeAheadHttpComponent],
+                NgBootstrapTypeAheadHttpComponent,
+                NgBootstrapDateTimePickerComponent],
   imports: [CommonModule,
     FormsModule,
     NgbModule,
@@ -39,7 +41,8 @@ import { NgBootstrapTypeAheadHttpComponent } from './ng-bootstrap-type-ahead-htt
              BuscaAvancadaComponent,
              NgbdSortableHeader,
              NgBootstrapDropdownBasicComponent,
-             NgBootstrapTypeAheadHttpComponent],
+             NgBootstrapTypeAheadHttpComponent,
+             NgBootstrapDateTimePickerComponent],
   bootstrap: [NgBootstrapDropdownComponent]
 })
 export class NgBootstrapComponentesModule { }
