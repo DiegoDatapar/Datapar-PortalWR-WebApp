@@ -16,43 +16,61 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-      <div class="container-fluid">
-          <div class="row mt-2">
-              <div class="col-11">
-                  <h4></h4>
-              </div>
-              <div class="col-1">
-                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-          </div>
+    <div class="container-fluid">
+      <div class="row mt-2">
+        <div class="col-11">
+          <h4></h4>
+        </div>
+        <div class="col-1">
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
       </div>
+    </div>
   </div>
   <div class="modal-body">
-      <form [formGroup]="formularioItensCotacao">
-          <div class="mt-3">
-              <pwr-cabecalho-secao descricao="Itens da Cotação: 1500"></pwr-cabecalho-secao>
-          </div>
-          
-          <div class="row mt-3 d-flex align-items-center">
-              <div class="col">
-                  <pwr-container-campos label="Cotação">
-                      <input formControlName="Codcot" class="form-control" />
-                  </pwr-container-campos>
-              </div>
-              <div class="col-1 px-1">
-                  <pwr-container-campos label="Cod. Produto">
-                      <input formControlName="Codprod" class="form-control" />
-                  </pwr-container-campos>
-              </div>
-              <div class="col">
-                  <pwr-container-campos label="Referência">
-                      <input formControlName="ReferenciaProduto" class="form-control" />
-                  </pwr-container-campos>
-              </div>              
-          </div>
-      </form>
+    <form [formGroup]="formularioItensCotacao">
+      <div class="mt-3">
+        <pwr-cabecalho-secao descricao="Itens da Cotação: {{id}}"></pwr-cabecalho-secao>
+      </div>
+
+      <div class="row mt-3 d-flex align-items-center">
+        <div class="col-3">
+          <pwr-container-campos label="Quantidade Oferecida">
+            <input formControlName="Qtdofe" class="form-control" />
+          </pwr-container-campos>
+        </div>
+        <div class="col-3">
+          <pwr-container-campos label="Valor Unitário R$">
+            <input formControlName="Vlruni" class="form-control" />
+          </pwr-container-campos>
+        </div>
+        <div class="col-3">
+          <pwr-container-campos label="Preço R$">
+            <input formControlName="Vlrtot" class="form-control" />
+          </pwr-container-campos>
+        </div>      
+
+      </div>
+      <div class="row mt-3 d-flex align-items-center">
+        <div class="col-12">
+          <pwr-container-campos label="Forma de Pagamento">
+            <pwr-busca-avancada api="EstfpgFiltro" [model]="Estfic.Codfpg" (itemSelecionado)="Estfic.Codfpg = $event"
+              [form]="formularioItensCotacao" name="Codfpg" bindinghighlight="Descri"
+              [configs]="EstfpgConfiguracoes.configsBinding" [formatter]="EstfpgConfiguracoes.formatter">
+            </pwr-busca-avancada>
+          </pwr-container-campos>
+        </div>
+      </div>
+      <div class="row mt-3 d-flex align-items-center">
+        <div class="col-12">
+          <pwr-container-campos label="Observações">
+            <textarea formControlName="Observ" class="form-control"></textarea>
+          </pwr-container-campos>
+        </div>
+      </div>
+    </form>
   </div>
   <div class="modal-footer">
 

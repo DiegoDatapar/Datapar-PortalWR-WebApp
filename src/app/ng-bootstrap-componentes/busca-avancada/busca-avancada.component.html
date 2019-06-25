@@ -1,3 +1,119 @@
-<p>
-  busca-avancada works!
-</p>
+<div id="inptbusca" [ngClass]="{'focado': focado}" [formGroup]="form">
+  <img src="assets/iconesAplicacao/icon-search-gray.svg" (click)="open(paginacao ? buscapaginada : content);" />
+  <pwr-ng-bootstrap-type-ahead-http [api]="api" [model]="model" (itemSelecionado)="itemSelecionadoInterno($event)"
+      [bindinghighlight]="bindinghighlight" [formatter]="formatter" (focado)="autocompleteFocado($event)"
+      [focoinicial]="focoinicial"
+      >
+  </pwr-ng-bootstrap-type-ahead-http>
+  <input type="hidden" [formControlName]="name">
+</div>
+
+<ng-template #buscapaginada let-modal>
+
+  <div class="modal-header">
+      <div class="container-fluid">
+          <div class="row mt-2">
+              <div class="col-11">
+                  <h4>{{labelModal?.length > 0 ? labelModal : 'Busca'}}</h4>
+              </div>
+              <div class="col-1">
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+
+          </div>
+          <div class="row mt-2">
+              <div class="col-10">
+                  <input type="text" placeholder="Filtro" class="form-control" (keyup)="filtro = $event.target.value">
+              </div>
+              <div class="col-2">
+                  <pwr-botao-generico descricao="Filtrar" altura="38" largura="72" (metodoPai)="filtrar($event)">
+                  </pwr-botao-generico>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal-body">
+      <table class="table" *ngIf="registros?.Value">
+          <thead>
+              <tr>
+                  <th scope="col" [sortable]="b.binding" *ngFor="let b of configs" class="text-center">{{b.label}}
+                  </th>
+              </tr>
+          </thead>
+          <tbody class="">
+              <tr class="tablelinha" *ngFor="let r of registros?.Value" (click)="itemSelecionadoModal(r)">
+                  <td *ngFor="let b of configs" class="text-center">
+                      {{r[b.binding]}}
+                  </td>
+              </tr>
+              <tr></tr>
+          </tbody>
+      </table>
+      <div class="d-flex justify-content-between p-2" *ngIf="registros?.Value">
+          <ngb-pagination [collectionSize]="registros?.Key" [(page)]="page" [pageSize]="pageSize" [maxSize]="10"
+              (pageChange)="paginacaoChanged($event)">
+          </ngb-pagination>
+
+          <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (change)="filtrar()">
+              <option [ngValue]="5">5</option>
+              <option [ngValue]="10">10</option>
+              <option [ngValue]="20">20</option>
+          </select>
+      </div>
+  </div>
+  <div class="modal-footer">
+  </div>
+
+
+</ng-template>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+      <div class="container-fluid">
+          <div class="row mt-2">
+              <div class="col-11">
+                  <h4>{{labelModal?.length > 0 ? labelModal : 'Busca'}}</h4>
+              </div>
+              <div class="col-1">
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+
+          </div>
+          <div class="row mt-2">
+              <div class="col-10">
+                  <input type="text" placeholder="Filtro" class="form-control" (keyup)="filtro = $event.target.value">
+              </div>
+              <div class="col-2">
+                  <pwr-botao-generico descricao="Filtrar" altura="38" largura="72" (metodoPai)="filtrar($event)">
+                  </pwr-botao-generico>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal-body">
+      <div class="row gridheader">
+          <div class="col-{{c.tamanhocoluna}} text-center" *ngFor="let c of configs">
+              <label for="">
+                  {{c.label}}
+              </label>
+          </div>
+      </div>
+      <div class="gridbody">
+          <div class="row gridlinha" *ngFor="let r of registros" (click)="itemSelecionadoModal(r)">
+              <div *ngFor="let c of configs" class="col-{{c.tamanhocoluna}} text-center">
+                  <label>
+                      {{r[c.binding]}}
+                  </label>
+              </div>
+          </div>
+      </div>
+
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</ng-template>

@@ -33,19 +33,20 @@ export class Estfic {
 export class EstficListagem {
         Codcot: number;
         Codprod: number;
-        DatDev: Date;
+        Datdev: Date;
         DescricaoFormaPagamento: string;
         Observ: string;
         ReferenciaProduto: string;
-        PreEnt: Date;
+        Preent: Date;
         DescricaoProduto: string;
-        QtdOfe: number;
+        Qtdofe: number;
         Quanti: number;
-        VlrTot: number;
-        VlrUni: number;
+        Vlrtot: number;
+        Vlruni: number;
         Codclifor: number;
         Unidad: string;
         ObservacaoComprador: string;
         DescricaoFabricante: string;
+        Codfpg: number;
 }
 

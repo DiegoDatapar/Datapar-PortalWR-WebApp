@@ -1,0 +1,128 @@
+:host ::ng-deep input {
+  border: none;
+  outline: none;
+  padding: 0px;
+  max-width: 93%;
+  display: inline-block;
+  box-shadow: none !important;
+}
+
+:host(.focus) {
+  border: 1px solid blue;
+}
+
+#inptbusca {
+  border-radius: 6px;
+  border: solid 1px #d5dce0;
+}
+
+img {
+  margin-top: -5px;
+  margin-left: 10px;
+}
+img:hover {
+  transform: scale(1.1);
+  cursor:pointer;
+}
+
+.focado {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/*
+
+modal para busca avançada
+
+*/
+
+.modal-header>.container-fluid {
+  height: 134px;
+  border-radius: 6px;
+  background-color: rgba(70, 111, 186, 0.06);
+  width: 100%;
+}
+
+.modal-header h4 {
+  height: 30px;
+  font-family: CircularStdBold;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #466fba;
+}
+
+.modal-header .col-1 button {
+  object-fit: contain;
+  color: #466fba;
+}
+
+.modal-header {
+  border-bottom: 0px;
+}
+
+.modal-footer {
+  border-top: 0px;
+}
+
+/*
+
+Datagrid
+
+*/
+
+.gridheader label {
+  height: 18px;
+  font-family: CircularStdBold;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #323e4f;
+}
+
+.gridheader {
+  padding: 0px 10px;
+}
+
+.gridbody {
+  overflow-y: scroll;
+  max-height: 300px;
+}
+
+.gridbody .gridlinha {
+  height: 55px;
+  border-radius: 6px;
+  background-color: #f4f7fb;
+  margin: 0px 3px 10px 3px;
+}
+
+.gridbody .gridlinha:hover {
+  height: 54px;
+  border-radius: 6px;
+  border: solid 1px #6ddbc4;
+  background-color: rgba(109, 219, 196, 0.12);
+}
+
+.gridbody .gridlinha label {
+  height: 18px;
+  font-family: CircularStdBook;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #323e4f;
+  margin-top: 1.5em;
+}
+
+table .tablelinha:hover {  
+  border: solid 1px #6ddbc4;
+  background-color: rgba(109, 219, 196, 0.12);
+  cursor: pointer;
+}

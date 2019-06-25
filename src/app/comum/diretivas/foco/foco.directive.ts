@@ -7,7 +7,7 @@ import { Directive, Input, ElementRef, AfterContentInit } from "@angular/core";
 })
 export class FocoCustomizadoDirective implements AfterContentInit {
 
-    @Input() public AutoFocus: boolean;
+    @Input() public appAutoFocus: boolean;
 
     public constructor(private el: ElementRef) {
 
@@ -15,7 +15,7 @@ export class FocoCustomizadoDirective implements AfterContentInit {
 
     public ngAfterContentInit() {
 
-        if (this.AutoFocus === false){
+        if (this.appAutoFocus === false){
             return;
         }
         setTimeout(() => {

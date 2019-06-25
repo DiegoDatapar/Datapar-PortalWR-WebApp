@@ -1,3 +1,4 @@
+import { FocoModule } from './../comum/diretivas/foco/foco.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -12,6 +13,7 @@ import { NgBootstrapDatePickerRangeComponent } from './ng-bootstrap-date-picker-
 import { BuscaAvancadaComponent } from './busca-avancada/busca-avancada.component';
 import { NgbdSortableHeader } from './ng-bootstrap-table/sortable';
 import { NgBootstrapDropdownBasicComponent } from './ng-bootstrap-dropdown-basic/ng-bootstrap-dropdown-basic.component';
+import { NgBootstrapTypeAheadHttpComponent } from './ng-bootstrap-type-ahead-http/ng-bootstrap-type-ahead-http.component';
 
 @NgModule({
   declarations: [NgBootstrapDropdownComponent,
@@ -20,22 +22,24 @@ import { NgBootstrapDropdownBasicComponent } from './ng-bootstrap-dropdown-basic
                 NgBootstrapDatePickerRangeComponent,
                 BuscaAvancadaComponent,
                 NgbdSortableHeader,
-                NgBootstrapDropdownBasicComponent],
-  imports: [CommonModule, 
+                NgBootstrapDropdownBasicComponent,
+                NgBootstrapTypeAheadHttpComponent],
+  imports: [CommonModule,
     FormsModule,
     NgbModule,
     ComponentesModule,
     BrowserModule,
     NgbModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, FocoModule
   ],
   exports:  [NgBootstrapDropdownComponent,
              NgBootstrapTableComponent,
              NgBootstrapDatePickerRangeComponent,
              BuscaAvancadaComponent,
              NgbdSortableHeader,
-             NgBootstrapDropdownBasicComponent],
+             NgBootstrapDropdownBasicComponent,
+             NgBootstrapTypeAheadHttpComponent],
   bootstrap: [NgBootstrapDropdownComponent]
 })
 export class NgBootstrapComponentesModule { }

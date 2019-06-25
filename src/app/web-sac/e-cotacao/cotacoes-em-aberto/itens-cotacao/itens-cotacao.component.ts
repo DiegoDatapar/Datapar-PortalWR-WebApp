@@ -1,3 +1,4 @@
+import { EstfpgConfiguracoes } from './../../../modelos/EstfpgConfiguracoes';
 import { ConfiguracaoTabela, PipeEnum } from 'src/app/comum/modelos/configuracoes-tabela';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -28,7 +29,7 @@ export class ItensCotacaoComponent implements OnInit {
     new ConfiguracaoTabela('Produto', 'DescricaoProduto'),
     new ConfiguracaoTabela('Unidade', 'Unidad'),
     new ConfiguracaoTabela('Quantidade', 'Quanti'),
-    new ConfiguracaoTabela('Data de Dev.', 'DatDev', '', '', PipeEnum.datahora),
+    new ConfiguracaoTabela('Data de Dev.', 'Datdev', '', '', PipeEnum.datahora),
     new ConfiguracaoTabela('Observação (Comprador)', 'ObservacaoComprador'),
     new ConfiguracaoTabela('Fabricante', 'DescricaoFabricante'),
   ];
@@ -36,6 +37,7 @@ export class ItensCotacaoComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
               private itensCotacaoService: ItensCotacaoService,
               private modalService: NgbModal,
+              public EstfpgConfiguracoes: EstfpgConfiguracoes,
               private formBuilder: FormBuilder ) {
               this.Estfic = new EstficListagem();
   }
@@ -59,19 +61,17 @@ export class ItensCotacaoComponent implements OnInit {
     this.formularioItensCotacao = this.formBuilder.group({
       Codcot: [this.Estfic.Codcot],
       Codprod: [this.Estfic.Codprod],
+      Codfpg: [this.Estfic.Codfpg],
       ReferenciaProduto: [this.Estfic.ReferenciaProduto],
       DescricaoProduto: [this.Estfic.DescricaoProduto],
       Quanti: [this.Estfic.Quanti],
       Unidade: [this.Estfic.Unidad],
-      QtdOfe: [this.Estfic.QtdOfe],
-      VlrUni: [this.Estfic.VlrUni],
-      VlrTot: [this.Estfic.VlrTot],
-      PreEnt: [this.Estfic.PreEnt],
-      DatDev: [this.Estfic.DatDev],
-      DescricaoFormaPagamento: [this.Estfic.DescricaoFormaPagamento],
-      Observ: [this.Estfic.Observ],
-      ObservacaoPagador: [this.Estfic.ObservacaoComprador],
-      DescricaoFabricante: [this.Estfic.DescricaoFabricante]
+      Qtdofe: [this.Estfic.Qtdofe],
+      Vlruni: [this.Estfic.Vlruni],
+      Vlrtot: [this.Estfic.Vlrtot],
+      Preent: [this.Estfic.Preent],
+      Datdev: [this.Estfic.Datdev],
+      Observ: [this.Estfic.Observ]
     });
   }
 

@@ -1,0 +1,11 @@
+<ng-template #rt let-r="result" let-t="term">
+  <ngb-highlight [result]="r[bindinghighlight]" [term]="t"></ngb-highlight>
+</ng-template>
+
+<input fococustomizado [appAutoFocus]="focoinicial" id="typeahead-template" type="text" class="form-control pl-2" [(ngModel)]="model" [ngbTypeahead]="search"
+  [resultTemplate]="rt" [inputFormatter]="formatter" inputRef (selectItem)="itemSelecionadoInterno($event)"
+  (blur)="onBlur()" (focus)="onFocus()" [name]="name"
+   />
+
+<span *ngIf="searching">searching...</span>
+<div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
