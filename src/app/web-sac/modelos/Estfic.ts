@@ -45,7 +45,9 @@ export class EstficListagem {
         Unidad: string;
         ObservacaoComprador: string;
         DescricaoFabricante: string;
+        DescricaoFornecedor: string;
         Codfpg: number;
         FormaPagamento: Estfpg;
+        NumeroLinha: number;
 }
 

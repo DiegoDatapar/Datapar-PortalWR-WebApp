@@ -17,6 +17,7 @@ export class ItensCotacaoComponent implements OnInit {
 
   id: number;
   Estfic: EstficListagem;
+  NumeroLinha: number;
 
   formularioItensCotacao: FormGroup;
 
@@ -36,17 +37,17 @@ export class ItensCotacaoComponent implements OnInit {
   ];
 
   constructor(private activatedRoute: ActivatedRoute,
-              private notificacoes: NotifierService,
-              private itensCotacaoService: ItensCotacaoService,
-              private modalService: NgbModal,
-              public estfpgConfiguracoes: EstfpgConfiguracoes,
-              private formBuilder: FormBuilder ) {
-              this.Estfic = new EstficListagem();
+    private notificacoes: NotifierService,
+    private itensCotacaoService: ItensCotacaoService,
+    private modalService: NgbModal,
+    public estfpgConfiguracoes: EstfpgConfiguracoes,
+    private formBuilder: FormBuilder) {
+    this.Estfic = new EstficListagem();
   }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params.id;
-    this.itensCotacaoService.Listar(this.id).subscribe(i => {this.registros = i; console.log(this.registros);});
+    this.itensCotacaoService.Listar(this.id).subscribe(i => { this.registros = i; console.log(this.registros); });
   }
 
   registroSelecionado(registro: EstficListagem, modal) {
@@ -54,8 +55,24 @@ export class ItensCotacaoComponent implements OnInit {
     this.abrirModal(modal);
     this.itensCotacaoService.Obter(registro.Codcot, registro.Codprod, registro.Codclifor).subscribe((res: EstficListagem[]) => {
       this.Estfic = res.shift();
+      this.NumeroLinha = this.Estfic.NumeroLinha;
       this.initForm();
     });
+  }
+
+  Teste(atual: number) {
+    this.NumeroLinha = atual;
+    debugger;
+    if (atual < this.registros.length && this.registros.length > -1) {
+
+      const cotacao = this.registros[atual].Codcot;
+      const produto = this.registros[atual].Codprod;
+      const fornecedor = this.registros[atual].Codclifor;
+      this.itensCotacaoService.Obter(cotacao, produto, fornecedor).subscribe((res: EstficListagem[]) => {
+        this.Estfic = res.shift();
+        this.initForm();
+      });
+    }
   }
 
   initForm() {
@@ -66,6 +83,7 @@ export class ItensCotacaoComponent implements OnInit {
       Codfpg: [this.Estfic.Codfpg, []],
       ReferenciaProduto: [this.Estfic.ReferenciaProduto],
       DescricaoProduto: [this.Estfic.DescricaoProduto],
+      DescricaoFornecedor: [this.Estfic.DescricaoFornecedor],
       Quanti: [this.Estfic.Quanti, []],
       Unidade: [this.Estfic.Unidad, []],
       Qtdofe: [this.Estfic.Qtdofe, []],
@@ -77,7 +95,14 @@ export class ItensCotacaoComponent implements OnInit {
     });
   }
   abrirModal(content: any) {
-    this.modalService.open(content, { backdrop: 'static', keyboard: false, ariaLabelledBy: 'modal-basic-title', size: 'lg', windowClass: 'modal-xsm' }).result.then((result) => {
+
+    this.modalService.open(content, {
+      backdrop: 'static',
+      keyboard: false,
+      ariaLabelledBy: 'modal-basic-title',
+      size: 'lg',
+      windowClass: 'modal-xsm'
+    }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
 
@@ -87,7 +112,6 @@ export class ItensCotacaoComponent implements OnInit {
   salvar() {
     const formSerial = this.formularioItensCotacao.getRawValue();
     formSerial.Codfpg = formSerial.Codfpg.Codigo;
-    debugger;
     this.itensCotacaoService.Salvar(formSerial as Estfic).subscribe(ret => {
       this.notificacoes.notify('success', 'Registro salvo com sucesso.');
       this.modalService.dismissAll();
