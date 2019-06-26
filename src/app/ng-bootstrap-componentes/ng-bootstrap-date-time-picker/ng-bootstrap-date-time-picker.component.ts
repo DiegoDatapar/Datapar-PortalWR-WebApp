@@ -71,7 +71,6 @@ export class NgBootstrapDateTimePickerComponent implements OnInit, OnChanges {
     this.ngControl = this.inj.get(NgControl);
   }
   ngOnChanges(changes: import('@angular/core').SimpleChanges): void {
-    debugger;
     let valor = this.form.get(this.name).value;
     if (valor == null) {
       return;

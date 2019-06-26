@@ -5,6 +5,11 @@ import { Rodfab } from './Rodfab';
 import { Estico } from './Estico';
 
 export class Estfic {
+
+
+    constructor() {
+        this.Preent = new Date();
+    }
     Codcot: number;
     Codprod: number;
     Codclifor: number;
@@ -21,13 +26,6 @@ export class Estfic {
     Observ: string;
     Vlrtot: number;
     Qtdofe: number;
-
-    Produto: Estpro;
-    FormaPagamento: Estfpg;
-    //Fornecedor: Rodcli;
-    Fabricante: Rodfab;
-    ItensCotacao: Estico;
-
 }
 
 export class EstficListagem {
@@ -48,5 +46,6 @@ export class EstficListagem {
         ObservacaoComprador: string;
         DescricaoFabricante: string;
         Codfpg: number;
+        FormaPagamento: Estfpg;
 }
 

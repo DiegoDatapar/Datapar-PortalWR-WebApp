@@ -19,10 +19,15 @@ export class ItensCotacaoService {
   }
 
   Obter(Codcot: number, Codprod: number, Codclifor: number) {
-    return this.httpcliente.get<EstficListagem>(`${this.urlApi}${Codcot}/${Codprod}/${Codclifor}`);
+    return this.httpcliente.get<EstficListagem[]>(`${this.urlApi}${Codcot}/${Codprod}/${Codclifor}`);
   }
 
-//   Salvar(item: Orditem) {
-//     return this.httpcliente.post<EstficListagem>(this.urlApi, item);
-//   }
+  Salvar(item: Estfic) {
+    debugger;
+    if (item.Preent != undefined) {
+      item.Preent = new Date();
+    }
+    
+    return this.httpcliente.post<Estfic>(this.urlApi, item);
+  }
 }
