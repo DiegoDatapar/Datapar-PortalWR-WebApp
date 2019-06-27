@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 import { AppModule } from '../app.module';
 import { ComponentesModule } from '../componentes/componentes.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModalDraggableModule } from '../ng-bootstrap-componentes/ng-bootstrap-modal-draggable/ngb-modal-draggable.module';
 
 
 @NgModule({
   declarations: [CotacoesEmAbertoComponent, ItensCotacaoComponent],
   exports: [CotacoesEmAbertoComponent, ItensCotacaoComponent],
-  imports: [CommonModule, NgBootstrapComponentesModule, ComponentesModule, FormsModule, ReactiveFormsModule, ]
+  imports: [CommonModule, NgBootstrapComponentesModule, ComponentesModule, FormsModule, ReactiveFormsModule, NgbModalDraggableModule ]
 })
 export class WebSacModule { }
