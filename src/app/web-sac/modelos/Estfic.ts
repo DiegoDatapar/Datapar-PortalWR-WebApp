@@ -5,11 +5,6 @@ import { Rodfab } from './Rodfab';
 import { Estico } from './Estico';
 
 export class Estfic {
-
-
-    constructor() {
-        this.Preent = new Date();
-    }
     Codcot: number;
     Codprod: number;
     Codclifor: number;

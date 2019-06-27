@@ -58,9 +58,8 @@ export class ItensCotacaoComponent implements OnInit {
     });
   }
 
-  Teste(atual: number) {
+  NavegarPelosRegistros(atual: number) {
     this.NumeroLinha = atual;
-    debugger;
     if (atual < this.registros.length && this.registros.length > -1) {
 
       const cotacao = this.registros[atual].Codcot;
@@ -112,7 +111,7 @@ export class ItensCotacaoComponent implements OnInit {
     formSerial.Codfpg = formSerial.Codfpg.Codigo;
     this.itensCotacaoService.Salvar(formSerial as Estfic).subscribe(ret => {
       this.notificacoes.notify('success', 'Registro salvo com sucesso.');
-      this.modalService.dismissAll();
+      //this.modalService.dismissAll();
     }, err => {
       this.notificacoes.notify('error', 'Não foi possivel salvar o registro. Mais informações no console');
       console.log(err);

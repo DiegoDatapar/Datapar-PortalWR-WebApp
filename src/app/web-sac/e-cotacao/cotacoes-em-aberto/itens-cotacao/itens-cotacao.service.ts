@@ -23,11 +23,6 @@ export class ItensCotacaoService {
   }
 
   Salvar(item: Estfic) {
-    debugger;
-    if (item.Preent != undefined) {
-      item.Preent = new Date();
-    }
-    
     return this.httpcliente.post<Estfic>(this.urlApi, item);
   }
 }
