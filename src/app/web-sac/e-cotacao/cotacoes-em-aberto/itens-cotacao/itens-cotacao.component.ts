@@ -26,14 +26,12 @@ export class ItensCotacaoComponent implements OnInit {
   registros: EstficListagem[];
   closeResult: string;
   configuracoesColunas: ConfiguracaoTabela[] = [
-    new ConfiguracaoTabela('Cod. Produto', 'Codprod'),
     new ConfiguracaoTabela('Referência', 'ReferenciaProduto'),
     new ConfiguracaoTabela('Produto', 'DescricaoProduto'),
     new ConfiguracaoTabela('Unidade', 'Unidad'),
     new ConfiguracaoTabela('Quantidade', 'Quanti'),
     new ConfiguracaoTabela('Data de Dev.', 'Datdev', '', '', PipeEnum.datahora),
-    new ConfiguracaoTabela('Observação (Comprador)', 'ObservacaoComprador'),
-    new ConfiguracaoTabela('Fabricante', 'DescricaoFabricante'),
+    new ConfiguracaoTabela('Observação (Comprador)', 'ObservacaoComprador')
   ];
 
   constructor(private activatedRoute: ActivatedRoute,

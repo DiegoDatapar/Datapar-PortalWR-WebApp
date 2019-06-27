@@ -25,10 +25,6 @@
     background-image: linear-gradient(263deg,rgba(0, 123, 255, 0.5),#466fba);
 }
 
-.botaogenerico .desabilitado {
-    background-color: #d5dce0 !important;
-    cursor: default;
-}
 
 .botaogenerico .azul {
     background-color: rgba(0, 123, 255, 0.5)!important;
@@ -54,3 +50,9 @@
 .botaogenerico .borderRadius {
     border-radius: 30px;
 }
+
+.botaogenerico .desabilitado {
+    background-color: #d5dce0 !important;
+    background-image: linear-gradient(263deg,  #d5dce0, #d5dce0);
+    cursor: not-allowed !important;
+}   
