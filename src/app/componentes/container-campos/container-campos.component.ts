@@ -9,6 +9,7 @@ export class ContainerCamposComponent implements OnInit {
 
   @Input() validaObrigatorio: boolean;
   @Input() label: string;
+  @Input() minilabel: string;
 
   constructor() { }
 

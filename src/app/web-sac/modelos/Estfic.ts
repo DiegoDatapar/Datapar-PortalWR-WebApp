@@ -10,6 +10,7 @@ export class Estfic {
     Codclifor: number;
     Numped: number;
     Vlruni: number;
+    Vlrori: number;
     Datenv: Date;
     Datdev: Date;
     Preent: Date;
@@ -21,6 +22,9 @@ export class Estfic {
     Observ: string;
     Vlrtot: number;
     Qtdofe: number;
+    Unidad: string;
+    Qtdemb: number;
+    Qtduni: number;
 }
 
 export class EstficListagem {
@@ -36,13 +40,16 @@ export class EstficListagem {
         Quanti: number;
         Vlrtot: number;
         Vlruni: number;
+        Vlrori: number;
         Codclifor: number;
-        Unidad: string;
         ObservacaoComprador: string;
         DescricaoFabricante: string;
         DescricaoFornecedor: string;
         Codfpg: number;
         FormaPagamento: Estfpg;
         NumeroLinha: number;
+        Unidad: string;
+        Qtdemb: number;
+        Qtduni: number;
 }
 

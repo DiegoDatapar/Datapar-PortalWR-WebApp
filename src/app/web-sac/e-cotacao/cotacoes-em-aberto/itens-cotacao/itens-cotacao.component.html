@@ -15,10 +15,10 @@
 
 <ng-template #content let-modal>
   <div ngb-modal-draggable [ngbModalDraggableHandle]="draggableHandle" #draggableHandle class="modal-header">
-      <button type="button" class="close closeButton" (click)="modal.dismiss('Cross click')" aria-hidden="true">
-          x
-      </button>  
-    </div>
+    <button type="button" class="close closeButton" (click)="modal.dismiss('Cross click')" aria-hidden="true">
+      x
+    </button>
+  </div>
   <div class="modal-body">
     <form [formGroup]="formularioItensCotacao">
       <div class="row mt-3">
@@ -30,8 +30,9 @@
             </pwr-botao-generico>
           </div>
           <div class="float-left">
-            <pwr-botao-generico (metodoPai)="NavegarPelosRegistros(NumeroLinha - 1)" focado="true" [desabilitado]="NumeroLinha == 0"
-              altura="30" largura="80" descricao="Anterior" classe="gradazul" teclaatalho="S">
+            <pwr-botao-generico (metodoPai)="NavegarPelosRegistros(NumeroLinha - 1)" focado="true"
+              [desabilitado]="NumeroLinha == 0" altura="30" largura="80" descricao="Anterior" classe="gradazul"
+              teclaatalho="S">
             </pwr-botao-generico>
           </div>
         </div>
@@ -46,30 +47,64 @@ FABRICANTE: {{Estfic.DescricaoFabricante | uppercase}}
       </div>
 
       <div class="row mt-3 d-flex align-items-center">
-        <div class="col-4">
-          <pwr-container-campos label="Quantidade Oferecida">
-            <input autofocus formControlName="Qtdofe" class="form-control" />
+        <div class="col-6">
+          <pwr-container-campos label="Unidade de Medida">
+            <input formControlName="Unidad" class="form-control" />
           </pwr-container-campos>
         </div>
-        <div class="col-4">
-          <pwr-container-campos label="Valor Unitário R$">
-            <input formControlName="Vlruni" class="form-control" />
-          </pwr-container-campos>
-        </div>
-        <div class="col-4">
-          <pwr-container-campos label="Preço R$">
-            <input formControlName="Vlrtot" class="form-control" />
+        <div class="col-6">
+          <pwr-container-campos label="Qtde na Embalagem" minilabel="(qne)">
+            <input (change)="CalcularQuantidadeUnitaria();" formControlName="Qtdemb" class="form-control" />
           </pwr-container-campos>
         </div>
       </div>
       <div class="row mt-3 d-flex align-items-center">
-        <!-- <div class="col-4">
-          <pwr-container-campos label="Prazo Envio">
-            <pwr-ng-bootstrap-date-time-picker name="Preent" [form]="formularioItensCotacao">
-            </pwr-ng-bootstrap-date-time-picker>
+        <div class="col-6">
+          <pwr-container-campos label="Qtde de Embalagens" minilabel="(qde)">
+            <input (change)="CalcularQuantidadeUnitaria();" formControlName="Qtduni" class="form-control" />
           </pwr-container-campos>
-        </div> -->
-        <div class="col-12">
+        </div>
+        <div class="col-6">
+          <pwr-container-campos label="Qtde Unitária" minilabel="(qne * qde) = qu">
+            <input (change)="CalcularTotal();CalcularTotalPre();CalcularValorOfertado();CalcularValorOfertadoPre();"
+              autofocus formControlName="Qtdofe" class="form-control" />
+          </pwr-container-campos>
+        </div>
+      </div>
+      <div class="row mt-3 d-flex align-items-center">
+        <div class="col-6">
+          <pwr-container-campos label="Valor Pré Negociação" minilabel="(vpn)">
+            <input (change)="CalcularTotalPre();" formControlName="Vlrori" class="form-control" />
+          </pwr-container-campos>
+        </div>
+        <div class="col-6">
+          <pwr-container-campos label="Total Pré Negociação" minilabel="(vpn * qu)">
+            <input (change)="CalcularValorOfertadoPre();" formControlName="Totori" class="form-control" />
+          </pwr-container-campos>
+        </div>
+      </div>
+      <div class="row mt-3 d-flex align-items-center">
+        <div class="col-6">
+          <pwr-container-campos label="Valor Ofertado" minilabel="(vo)">
+            <input (change)="CalcularTotal();" formControlName="Vlruni" class="form-control" />
+          </pwr-container-campos>
+        </div>
+        <div class="col-6">
+          <pwr-container-campos label="Total" minilabel="(vo * qu)">
+            <input (change)="CalcularValorOfertado();" formControlName="Vlrtot" class="form-control" />
+          </pwr-container-campos>
+        </div>
+      </div>
+
+      <div class="row mt-3 d-flex align-items-center">
+
+        <div class="col-3">
+          <pwr-container-campos label="Prazo Envio">
+            <pwr-prime-ng-date-time-picker name="Preent" [formGroup]="formularioItensCotacao">
+            </pwr-prime-ng-date-time-picker>
+          </pwr-container-campos>
+        </div>
+        <div class="col-9">
           <pwr-container-campos label="Forma de Pagamento">
             <pwr-busca-avancada api="EstfpgFiltro" [model]="Estfic?.FormaPagamento" [form]="formularioItensCotacao"
               name="Codfpg" bindinghighlight="Descri" [configs]="estfpgConfiguracoes.configsBinding"
@@ -96,6 +131,5 @@ FABRICANTE: {{Estfic.DescricaoFabricante | uppercase}}
     </form>
   </div>
   <div class="modal-footer">
-
   </div>
 </ng-template>

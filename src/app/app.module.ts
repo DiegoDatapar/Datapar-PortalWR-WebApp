@@ -13,7 +13,8 @@ import { AutenticacaoModule } from './autenticacao/autenticacao.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AutenticacaoInterceptadorService } from './autenticacao/autenticacao.interceptador.service';
 import { PaginaInicialComponent } from './portal-wr/pagina-inicial/pagina-inicial.component';
-
+import { PrimengModule } from './prime-ng/prime-ng.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { PaginaInicialComponent } from './portal-wr/pagina-inicial/pagina-inicia
     AppRoutingModule,
     WebSacModule,
     ComponentesModule,
-    NgBootstrapComponentesModule, AutenticacaoModule
+    BrowserAnimationsModule,
+    NgBootstrapComponentesModule, AutenticacaoModule, PrimengModule
   ],
   exports: [NavegacaoSuperiorComponent, PaginaInicialComponent, ComponentesModule, NgBootstrapComponentesModule],
   providers: [

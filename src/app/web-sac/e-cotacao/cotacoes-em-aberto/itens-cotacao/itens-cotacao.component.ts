@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EstficListagem, Estfic } from 'src/app/web-sac/modelos/Estfic';
 import { ItensCotacaoService } from './itens-cotacao.service';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { NotifierService } from 'angular-notifier';
 
 @Component({
@@ -82,17 +82,56 @@ export class ItensCotacaoComponent implements OnInit {
       DescricaoProduto: [this.Estfic.DescricaoProduto],
       DescricaoFornecedor: [this.Estfic.DescricaoFornecedor],
       Quanti: [this.Estfic.Quanti, []],
-      Unidade: [this.Estfic.Unidad, []],
-      Qtdofe: [this.Estfic.Qtdofe, []],
+      Unidad: [this.Estfic.Unidad, []],
+      Qtdofe: [{ value: this.Estfic.Qtdofe, disabled: true }, []],
       Vlruni: [this.Estfic.Vlruni, []],
+      Vlrori: [this.Estfic.Vlrori, []],
+      Totori: [this.Estfic.Vlrori, []],
       Vlrtot: [this.Estfic.Vlrtot, []],
-      Preent: [this.Estfic.Preent, []],
+      Preent: new FormControl(new Date(this.Estfic.Preent), { validators: [] }),
       Datdev: [this.Estfic.Datdev, []],
-      Observ: [this.Estfic.Observ, []]
+      Observ: [this.Estfic.Observ, []],
+      Qtdemb: [this.Estfic.Qtdemb, []],
+      Qtduni: [this.Estfic.Qtduni, []]
     });
   }
-  abrirModal(content: any) {
 
+
+  CalcularQuantidadeUnitaria() {
+    const qtdUnidade: number = this.formularioItensCotacao.controls.Qtduni.value;
+    const qtdEmbalagem: number = this.formularioItensCotacao.controls.Qtdemb.value;
+    this.formularioItensCotacao.controls.Qtdofe.setValue(qtdUnidade * qtdEmbalagem);
+    this.CalcularTotal();
+    this.CalcularTotalPre();
+    this.CalcularValorOfertado();
+    this.CalcularValorOfertadoPre();
+  }
+
+  CalcularTotal() {
+    const qtdUnitaria: number = this.formularioItensCotacao.controls.Qtdofe.value;
+    const vlrUnitario: number = this.formularioItensCotacao.controls.Vlruni.value;
+    this.formularioItensCotacao.controls.Vlrtot.setValue(qtdUnitaria * vlrUnitario);
+  }
+
+  CalcularValorOfertado() {
+    const qtdUnitaria: number = this.formularioItensCotacao.controls.Qtdofe.value;
+    const vlrTotal: number = this.formularioItensCotacao.controls.Vlrtot.value;
+    this.formularioItensCotacao.controls.Vlruni.setValue(vlrTotal / qtdUnitaria);
+  }
+
+  CalcularTotalPre() {
+    const qtdUnitaria: number = this.formularioItensCotacao.controls.Qtdofe.value;
+    const vlrPre: number = this.formularioItensCotacao.controls.Vlrori.value;
+    this.formularioItensCotacao.controls.Totori.setValue(qtdUnitaria * vlrPre);
+  }
+
+  CalcularValorOfertadoPre() {
+    const qtdUnitaria: number = this.formularioItensCotacao.controls.Qtdofe.value;
+    const vlrTotal: number = this.formularioItensCotacao.controls.Totori.value;
+    this.formularioItensCotacao.controls.Vlrori.setValue(vlrTotal / qtdUnitaria);
+  }
+
+  abrirModal(content: any) {
     this.modalService.open(content, {
       backdrop: 'static',
       keyboard: false,
@@ -107,8 +146,11 @@ export class ItensCotacaoComponent implements OnInit {
   }
 
   salvar() {
+    debugger;
     const formSerial = this.formularioItensCotacao.getRawValue();
-    formSerial.Codfpg = formSerial.Codfpg.Codigo;
+    if (formSerial.Codfpg.Codigo !== undefined) {
+      formSerial.Codfpg = formSerial.Codfpg.Codigo;
+    }
     this.itensCotacaoService.Salvar(formSerial as Estfic).subscribe(ret => {
       this.notificacoes.notify('success', 'Registro salvo com sucesso.');
       //this.modalService.dismissAll();

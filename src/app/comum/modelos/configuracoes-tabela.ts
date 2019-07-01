@@ -1,10 +1,11 @@
 
+
 export class ConfiguracaoTabela {
 
 
     label: string;
     binding: string;
-    tamanhocoluna: string;
+    tamanhocoluna: string; //Informar numero para tamanho baseado em sistema de grid/coluna do bootstrap.
     bindingfiltro: string;
     bindingfiltro2: string;
     pipe: PipeEnum;

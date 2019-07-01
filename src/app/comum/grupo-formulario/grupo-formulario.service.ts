@@ -11,10 +11,10 @@ export class GrupoFormularioService {
   atualizaValor(form: FormGroup, propriedade: string, objeto: any) {
 
     const valor = objeto != null ? objeto[propriedade] || objeto : null;
-    const chave: string = propriedade;
-    const camposFormulario = {};
-    camposFormulario[chave] = valor;
-    form.patchValue(camposFormulario);
+    const key: string = propriedade;
+    const formField = {};
+    formField[key] = valor;
+    form.patchValue(formField);
 
   }
 }
